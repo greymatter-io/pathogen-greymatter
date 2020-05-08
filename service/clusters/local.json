@@ -1,0 +1,14 @@
+{
+    "zone_key": "{{ variable "zone" }}",
+    "cluster_key": "{{ variable "serviceName" }}.local.cluster",
+    "name": "{{ variable "serviceName" }}.local",
+    "instances": [
+        {
+            "host": "{{ variable "serviceHost" }}",
+            "port": {{ variable "servicePort" }}
+        }
+    ],
+    "circuit_breakers": null,
+    "outlier_detection": null,
+    "health_checks": []
+}

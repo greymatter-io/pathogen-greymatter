@@ -1,0 +1,38 @@
+{
+    "zone_key": "{{ variable "zone" }}",
+    "proxy_key": "{{ variable "serviceName" }}.proxy",
+    "domain_keys": [
+        "{{ variable "serviceName" }}.egress.domain",
+        "{{ variable "serviceName" }}.ingress.domain"
+    ],
+    "listener_keys": [
+        "fibonacci.ingress.listener"
+    ],
+    "name": "{{ variable "serviceNamespace" }}.{{ variable "serviceServiceAccount" }}",
+    "listeners": null,
+    "active_proxy_filters": [
+        "gm.metrics",
+        "gm.observables"
+    ],
+    "proxy_filters": {
+        "gm_metrics": {
+            "metrics_port": 8080,
+            "metrics_host": "0.0.0.0",
+            "metrics_dashboard_uri_path": "/metrics",
+            "metrics_prometheus_uri_path": "/prometheus",
+            "metrics_ring_buffer_size": 4096,
+            "prometheus_system_metrics_interval_seconds": 15,
+            "metrics_key_function": "depth"
+        },
+        "gm_observables": {
+            "emitFullResponse": false,
+            "useKafka": true,
+            "useKafkaTLS": true,
+            "eventTopic": "observables",
+            "enforceAudit": false,
+            "topic": "{{ variable "serviceNamespace" }}.{{ variable "serviceName" }}",
+            "kafkaZKDiscover": false,
+            "kafkaServerConnection": "kafka-0.kafka.example.com:9092,kafka-1.kafka.example.com:9092,kafka-2.kafka.example.com:9092"
+        }
+    }
+}

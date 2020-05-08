@@ -1,0 +1,31 @@
+ignore:
+  - '^\.pathogen\.yml'
+  - '^README\.md$'
+variables:
+  - name: clusterName
+    description: the cluster name
+    value:
+  - name: displayName
+    description: the name as it should appear in the dashboard
+    value:
+  - name: zone
+    description: the zone in which the sidecar runs
+    value: default.zone
+  - name: version
+    description: the version of the service
+    value: latest
+  - name: owner
+    description: the owner of the service 
+    value: 
+  - name: capability
+    description: the capability of the service
+    value: 
+  - name: documentation
+    description: the path to the documentation link
+    value:
+  - name: minInstances
+    description: the minimum number of instances that should always be running
+    value: 1
+  - name: maxInstances
+    description: the maximum number of instances that could be running
+    value: 1

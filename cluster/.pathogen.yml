@@ -1,0 +1,28 @@
+ignore:
+  - '^\.pathogen\.yml'
+  - '^README\.md$'
+variables:
+  - name: clusterName
+    description: the cluster name
+    value:
+  - name: clusterNamespace
+    description: the kubernetes namespace in which the cluster is deployed
+    value: default
+  - name: clusterServiceAccount
+    description: the kubernetes service account in which the cluster is run
+    value: default
+  - name: serviceName
+    description: the service name for the service
+    value:
+  - name: serviceNamespace
+    description: the kubernetes namespace in which the service is deployed
+    value: default
+  - name: serviceServiceAccount
+    description: the kubernetes service account in which the service is run
+    value: default
+  - name: trustDomain
+    description: the trust domain
+    value: greymatter.io
+  - name: zone
+    description: the zone in which the sidecar runs
+    value: default.zone

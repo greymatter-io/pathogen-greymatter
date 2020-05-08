@@ -1,0 +1,31 @@
+ignore:
+  - '^\.pathogen\.yml'
+  - '^README\.md$'
+variables:
+  - name: serviceHost
+    description: the hostname or ip address for the service
+    value: 127.0.0.1
+  - name: serviceName
+    description: the service name for the service
+    value:
+  - name: serviceNamespace
+    description: the kubernetes namespace in which the service is deployed
+    value: service
+  - name: servicePort
+    description: the port on which the service listens
+    value: 10080
+  - name: serviceServiceAccount
+    description: the kubernetes service account in which the service is run
+    value: service
+  - name: sidecarEgressPort
+    description: the port on which the sidecar listens for egress connections
+    value: 9080
+  - name: sidecarIngressPort
+    description: the port on which the sidecar listens for ingress connections
+    value: 8443
+  - name: trustDomain
+    description: the trust domain
+    value: greymatter.io
+  - name: zone
+    description: the zone in which the sidecar runs
+    value: default.zone

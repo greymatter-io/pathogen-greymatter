@@ -1,0 +1,11 @@
+{
+    "zone_key": "{{ variable "zone" }}",
+    "domain_key": "{{ variable "serviceName" }}.egress.domain",
+    "name": "*",
+    "port": {{ variable "sidecarEgressPort" }},
+    "redirects": null,
+    "gzip_enabled": false,
+    "cors_config": null,
+    "aliases": null,
+    "force_https": false
+}

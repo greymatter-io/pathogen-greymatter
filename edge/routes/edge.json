@@ -1,0 +1,13 @@
+{
+    "zone_key": "{{ variable "zone" }}",
+    "domain_key": "edge.inress.domain",
+    "route_key": "edge.{{ variable "clusterName" }}.route",
+    "path": "/",
+    "prefix_rewrite": "",
+    "redirects": null,
+    "shared_rules_key": "edge.{{ variable "clusterName" }}.rules",
+    "rules": null,
+    "response_data": {},
+    "cohort_seed": null,
+    "retry_policy": null
+}
