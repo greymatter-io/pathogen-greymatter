@@ -4,11 +4,11 @@ This repository contains several [pathogen](https://github.com/galaho/pathogen) 
 
 ## Get Pathogen
 
-Download the latest [pathogen binary](https://github.com/galaho/pathogen/releases) for  your  architecture
+Download the latest [pathogen binary](https://github.com/galaho/pathogen/releases) for your architecture.
 
 ## Create Templates
 
-Each template folder has a README with instructions no how to create the template
+Each template folder has a README with instructions on how to create the template.
 
 ## Contributing
 
