@@ -1,4 +1,5 @@
 # Cluster Pathogen Templates
+
 This directory contains the pathogen templates for adding a cluster to an existing service deployments in an exemplar Grey Matter instance. This exemplar instance assumes the following:
 
 - A Kubernetes deployment environment.
@@ -7,6 +8,7 @@ This directory contains the pathogen templates for adding a cluster to an existi
 ## Usage
 
 ### Variables
+
 These templates use the following variables to customize the Grey Matter service mesh resources.
 
 | Name                  | Default       | Description                                              |
@@ -25,6 +27,7 @@ These templates use the following variables to customize the Grey Matter service
 | zone                  | default.zone  | The zone.                                                |
 
 ### Generation
-To generate mesh resources with these templates run the following command replacing `DIRECORY` is the local directory to which the resources should be generated.
+
+To generate mesh resources with these templates run the following command replacing `DIRECTORY` is the local directory to which the resources should be generated.
 
     pathogen generate git@github.com/joshua-rutherford/pathogen-greymatter.git//cluster DIRECTORY
