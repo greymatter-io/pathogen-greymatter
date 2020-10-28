@@ -1,8 +1,8 @@
 {
     "zone_key": "{{ variable "zone" }}",
-    "listener_key": "{{ variable "serviceName" }}.eggress.listener",
+    "listener_key": "{{ variable "serviceName" }}.egress.listener",
     "domain_keys": [
-        "{{ variable "serviceName" }}.eggress.domain"
+        "{{ variable "serviceName" }}.egress.domain"
     ],
     "name": "egress",
     "ip": "localhost",

@@ -6,7 +6,7 @@
         "{{ variable "serviceName" }}.ingress.domain"
     ],
     "listener_keys": [
-        "fibonacci.ingress.listener"
+        "{{ variable "serviceName" }}.ingress.listener"
     ],
     "name": "{{ variable "serviceNamespace" }}.{{ variable "serviceServiceAccount" }}",
     "listeners": null,
