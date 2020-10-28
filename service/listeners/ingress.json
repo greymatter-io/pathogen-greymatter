@@ -6,7 +6,7 @@
     ],
     "name": "ingress",
     "ip": "0.0.0.0",
-    "port": "{{ variable "sidecarIngressPort" }}",
+    "port": {{ variable "sidecarIngressPort" }},
     "protocol": "http_auto",
     "secret": {
         "secret_key": "{{ variable "serviceName" }}.identity",
