@@ -6,7 +6,7 @@
     ],
     "name": "egress",
     "ip": "localhost",
-    "port": "{{ variable "sidecarEgressPort" }}",
+    "port": {{ variable "sidecarEgressPort" }},
     "protocol": "http_auto",
     "tracing_config": null
 }
