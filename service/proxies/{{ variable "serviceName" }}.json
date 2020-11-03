@@ -9,7 +9,7 @@
         "{{ variable "serviceName" }}.ingress.listener",
         "{{ variable "serviceName" }}.egress.listener"
     ],
-    "name": "{{ variable "serviceNamespace" }}.{{ variable "serviceName" }}",
+    "name": "{{ variable "serviceNamespace" }}-{{ variable "serviceName" }}",
     "listeners": null,
     "active_proxy_filters": [
         "gm.metrics",
