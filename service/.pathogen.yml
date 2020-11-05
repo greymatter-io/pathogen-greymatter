@@ -10,7 +10,7 @@ variables:
     value:
   - name: serviceNamespace
     description: the kubernetes namespace in which the service is deployed
-    value: service
+    value: default
   - name: servicePort
     description: the port on which the service listens
     value: 10080
