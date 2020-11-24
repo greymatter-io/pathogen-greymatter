@@ -1,0 +1,64 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: {{ variable "serviceName" }}
+    {{ variable "controlPodLabel" }}: {{ variable "serviceName" }}
+  name: {{ variable "serviceName" }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ variable "serviceName" }}
+      {{ variable "controlPodLabel" }}: {{ variable "serviceName" }}
+  template:
+    metadata:
+      labels:
+        app: {{ variable "serviceName" }}
+        {{ variable "controlPodLabel" }}: {{ variable "serviceName" }}
+    spec:
+      containers:
+        - name: {{ variable "serviceName" }}
+          image: "{{ variable "image" }}"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: {{ variable "servicePort" }}
+          env:
+            -- FILL IN YOUR SERVICE'S ENVVARS --
+        - name: sidecar
+          image: "docker.greymatter.io/release/gm-proxy:1.4.5"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: metrics
+              containerPort: 8081
+            - name: proxy
+              containerPort: {{ variable "sidecarIngressPort" }}
+          env:
+            - name: ENVOY_ADMIN_LOG_PATH
+              value: "/dev/stdout"
+            - name: PROXY_DYNAMIC
+              value: "true"
+            - name: SPIRE_PATH
+              value: "/run/spire/socket/agent.sock"
+            - name: XDS_CLUSTER
+              value: "{{ variable "serviceName" }}"
+            - name: XDS_HOST
+              value: "control.{{ variable "fabricNamespace" }}.svc"
+            - name: XDS_NODE_ID
+              value: "default"
+            - name: XDS_PORT
+              value: "50000"
+            - name: XDS_ZONE
+              value: "{{ variable "zone" }}"
+          volumeMounts:
+            - name: spire-socket
+              mountPath: /run/spire/socket
+              readOnly: false
+      imagePullSecrets:
+        - name: docker.greymatter.io
+      volumes:
+        - name: spire-socket
+          hostPath:
+            path: /run/spire/socket
+            type: DirectoryOrCreate

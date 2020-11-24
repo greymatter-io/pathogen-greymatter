@@ -1,0 +1,25 @@
+ignore:
+  - '^\.pathogen\.yml'
+  - '^README\.md$'
+variables:
+  - name: serviceName
+    description: the service name for the service
+    value:
+  - name: sidecarIngressPort
+    description: the port on which the sidecar listens for ingress connections
+    value: 10808
+  - name: servicePort
+    description: the port on which the service listens
+    value: 8080
+  - name: zone
+    description: the zone in which the sidecar runs
+    value: zone-default-zone
+  - name: fabricNamespace
+    description: the kubernetes namespace where Grey Matter Control is running
+    value: default
+  - name: image
+    description: the image for your new service
+    value: docker.greymatter.io/internal/fibonacci:latest
+  - name: controlPodLabel
+    description: The value of `gm_control_kubernetes_cluster_label` environment variable for Grey Matter Control.
+    value: greymatter.io/control
