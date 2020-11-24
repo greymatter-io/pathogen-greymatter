@@ -1,9 +1,9 @@
 {
     "zone_key": "{{ variable "zone" }}",
     "domain_key": "edge",
-    "route_key": "edge-{{ variable "serviceName" }}-route",
-    "path": "/services/{{ variable "serviceName" }}/latest/",
-    "prefix_rewrite": "/",
+    "route_key": "edge-{{ variable "serviceName" }}-route-slash",
+    "path": "/services/{{ variable "serviceName" }}/latest",
+    "prefix_rewrite": "/services/{{ variable "serviceName" }}/latest/",
     "redirects": null,
     "shared_rules_key": "edge-{{ variable "serviceName" }}-shared-rules",
     "rules": null,

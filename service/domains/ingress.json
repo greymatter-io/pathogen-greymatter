@@ -1,6 +1,6 @@
 {
     "zone_key": "{{ variable "zone" }}",
-    "domain_key": "{{ variable "serviceName" }}.ingress.domain",
+    "domain_key": "domain-{{ variable "serviceName" }}-ingress",
     "name": "*",
     "port": {{ variable "sidecarIngressPort" }},
     "redirects": null,

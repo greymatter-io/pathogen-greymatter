@@ -1,11 +1,17 @@
 {
     "zone_key": "{{ variable "zone" }}",
-    "domain_key": "{{ variable "serviceName" }}.egress.domain",
+    "domain_key": "domain-{{ variable "serviceName" }}-egress",
     "name": "*",
     "port": {{ variable "sidecarEgressPort" }},
     "redirects": null,
     "gzip_enabled": false,
     "cors_config": null,
     "aliases": null,
-    "force_https": false
+    "force_https": false,
+    "custom_headers": [
+        {
+          "key": "x-forwarded-proto",
+          "value": "https"
+        }
+    ]
 }

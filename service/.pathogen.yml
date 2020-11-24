@@ -8,24 +8,18 @@ variables:
   - name: serviceName
     description: the service name for the service
     value:
-  - name: serviceNamespace
-    description: the kubernetes namespace in which the service is deployed
-    value: default
   - name: servicePort
     description: the port on which the service listens
-    value: 10080
-  - name: serviceServiceAccount
-    description: the kubernetes service account in which the service is run
-    value: service
+    value: 8080
   - name: sidecarEgressPort
     description: the port on which the sidecar listens for egress connections
-    value: 9080
+    value: 10909
   - name: sidecarIngressPort
     description: the port on which the sidecar listens for ingress connections
-    value: 8443
+    value: 10808
   - name: trustDomain
     description: the trust domain
-    value: greymatter.io
+    value: quickstart.greymatter.io
   - name: zone
     description: the zone in which the sidecar runs
-    value: default.zone
+    value: zone-default-zone

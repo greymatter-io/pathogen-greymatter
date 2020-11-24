@@ -1,12 +1,12 @@
 {
     "zone_key": "{{ variable "zone" }}",
-    "shared_rules_key": "{{ variable "serviceName" }}.local.rules",
-    "name": "{{ variable "serviceName" }}.local",
+    "shared_rules_key": "rules-{{ variable "serviceName" }}-local",
+    "name": "{{ variable "serviceName" }}-local",
     "default": {
         "light": [
             {
                 "constraint_key": "",
-                "cluster_key": "{{ variable "serviceName" }}.local.cluster",
+                "cluster_key": "cluster-{{ variable "serviceName" }}-local",
                 "metadata": null,
                 "properties": null,
                 "response_data": {},

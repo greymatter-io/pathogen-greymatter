@@ -13,15 +13,13 @@ These templates use the following variables to customize the Grey Matter service
 
 | Name                     | Default       | Description                                              |
 | ------------------------ | ------------- | -------------------------------------------------------- |
-| kubernetesNamespace      | default       | The namespace into which the service is deployed.        |
-| kubernetesServiceAccount | default       | The serivce account running the service.                 |
 | serviceHost              | localhost     | The hostname or address for the service.                 |
-| serviceName              | service       | The name of the service.                                 |
-| servicePort              | 10080         | The port on which the service listens.                   |
-| spireTrustDomain         | greymatter.io | The name of the SPIRE trust domain.                      |
-| sidecarEgressPort        | 9080          | The port on which the sidecar should listen for egress.  |
-| sidecarIngressPort       | 8443          | The port on which the sidecar should listen for ingress. |
-| zone                     | default.zone  | The zone.                                                |
+| serviceName              |               | The name of the service.                                 |
+| servicePort              | 8080          | The port on which the service listens.                   |
+| trustDomain              | quickstart.greymatter.io | The name of the SPIRE trust domain.           |
+| sidecarEgressPort        | 10909         | The port on which the sidecar should listen for egress.  |
+| sidecarIngressPort       | 10808         | The port on which the sidecar should listen for ingress. |
+| zone                     | zone-default-zone  | The zone.                                           |
 
 ### Generation
 

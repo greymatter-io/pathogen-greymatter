@@ -3,7 +3,9 @@
 This directory contains the pathogen templates for adding a service to an existing edge deployment in an exemplar Grey Matter instance. This exemplar instance assumes the following:
 
 - A Kubernetes deployment environment.
-- A SPIRE deployment using namespace and service account based identities.
+- A SPIRE deployment using pod label based identities.
+å
+The configuration created will route to the service with name serviceName at `/services/{{serviceName}}/latest`.
 
 ## Usage
 
@@ -13,14 +15,12 @@ These templates use the following variables to customize the Grey Matter service
 
 | Name                  | Default       | Description                                       |
 | --------------------- | ------------- | ------------------------------------------------- |
-| clusterName           |               | The name of the cluster.                          |
-| clusterNamespace      | default       | The namespace into which the cluster is deployed. |
-| clusterServiceAccount | default       | The service account running the cluster.          |
-| trustDomain           | greymatter.io | The name of the trust domain.                     |
-| zone                  | default.zone  | The zone.                                         |
+| serviceName           |               | The name of the service to route to from edge.    |
+| trustDomain           | quickstart.greymatter.io | The name of the trust domain.          |
+| zone                  | zone-default-zone  | The zone.                                    |
 
 ### Generation
 
 To generate mesh resources with these templates run the following command replacing `DIRECTORY` is the local directory to which the resources should be generated.
 
-    pathogen generate git@github.com/joshua-rutherford/pathogen-greymatter.git//edge DIRECTORY
+    pathogen generate git@github.com:greymatter-io/pathogen-greymatter.git//edge DIRECTORY

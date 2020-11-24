@@ -1,0 +1,18 @@
+{
+    "zone_key": "{{ variable "zone" }}",
+    "cluster_key": "{{ variable "serviceName" }}-{{ variable "egressServiceName" }}-cluster",
+    "name": "{{ variable "egressServiceName" }}",
+    "instances": [],
+    "require_tls": true,
+    "secret": {
+      "secret_key": "{{ variable "serviceName" }}.identity",
+      "secret_name": "spiffe://{{ variable "trustDomain" }}/{{ variable "serviceName" }}",
+      "secret_validation_name": "spiffe://{{ variable "trustDomain" }}",
+      "subject_names": [
+        "spiffe://{{ variable "trustDomain" }}/{{ variable "egressServiceName" }}"
+      ],
+      "ecdh_curves": [
+        "X25519:P-256:P-521:P-384"
+      ]
+    }
+  }

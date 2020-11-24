@@ -1,7 +1,7 @@
 {
     "zone_key": "{{ variable "zone" }}",
-    "cluster_key": "{{ variable "serviceName" }}.local.cluster",
-    "name": "{{ variable "serviceName" }}.local",
+    "cluster_key": "cluster-{{ variable "serviceName" }}-local",
+    "name": "{{ variable "serviceName" }}-local",
     "instances": [
         {
             "host": "{{ variable "serviceHost" }}",
