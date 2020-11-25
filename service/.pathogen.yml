@@ -2,24 +2,24 @@ ignore:
   - '^\.pathogen\.yml'
   - '^README\.md$'
 variables:
-  - name: serviceHost
-    description: the hostname or ip address for the service
-    value: 127.0.0.1
   - name: serviceName
-    description: the service name for the service
+    description: serviceName (the name of the service and sidecar)
     value:
+  - name: serviceHost
+    description: serviceHost (the hostname or ip address for the service)
+    value: 127.0.0.1
   - name: servicePort
-    description: the port on which the service listens
+    description: servicePort (the port on which the service listens)
     value: 8080
-  - name: sidecarEgressPort
-    description: the port on which the sidecar listens for egress connections
-    value: 10909
   - name: sidecarIngressPort
-    description: the port on which the sidecar listens for ingress connections
+    description: sidecarIngressPort (the port on which the sidecar listens for ingress connections)
     value: 10808
+  - name: sidecarEgressPort
+    description: sidecarEgressPort (the port on which the sidecar listens for egress connections)
+    value: 10909
   - name: trustDomain
-    description: the trust domain
+    description: trustDomain (the trust domain)
     value: quickstart.greymatter.io
   - name: zone
-    description: the zone in which the sidecar runs
+    description: zone (the zone in which the sidecar runs)
     value: zone-default-zone

@@ -3,17 +3,17 @@ ignore:
   - '^README\.md$'
 variables:
   - name: serviceName
-    description: the name of the service making egress requests
+    description: serviceName (the name of the service making egress requests)
     value:
   - name: egressServiceName
-    description: the name of the service to make requests to
+    description: egressServiceName (the name of the service to make requests to)
     value:
   - name: trustDomain
-    description: the trust domain for SPIRE
+    description: trustDomain (the trust domain for SPIRE)
     value: quickstart.greymatter.io
   - name: path
-    description: the path for the route to egressService
+    description: path (the path for the route to egressService)
     value:
   - name: zone
-    description: the zone in which the sidecar runs
+    description: zone (the zone in which the sidecar runs)
     value: zone-default-zone

@@ -6,13 +6,15 @@ The templates in this repository contain all of the necessary pieces to create a
 
 There are several variables that will be reused for multiple different template steps. Make sure that variables with the same name have the same value as you go through - these variables include:
 
-```bash
-serviceName
-sidecarIngressPort
-servicePort
-zone
-trustDomain
-```
+| Variable                 | Helm Charts Default       |
+| ------------------------ | ------------------------- |
+| serviceName              |                           |
+| servicePort              |                           |
+| sidecarIngressPort       | 10808                     |
+| zone                     | zone-default-zone         |
+| trustDomain              | quickstart.greymatter.io  |
+
+If your Grey Matter installation used the Grey Matter helm charts, unless you explicitly changed any of the above values with a default, you should use those values.  Service name and the port your service will be running on are up to you, be sure to add whatever environment variables are necessary to ensure this when you generate the [deployment](#1-the-deployment)
 
 In each template command you will indicate with directory you want the generated files to be put in, this is indicated as `DIRECTORY`. It is recommended to create a directory for each service you will be adding, and create all its templated files into it.
 
@@ -68,9 +70,48 @@ To create the mesh configurations necessary to route from edge to the new servic
 pathogen generate edge DIRECTORY/
 ```
 
-## 4. (Optional) Egress Routes
+## 4. Catalog template
 
-If your service doesn't need to make requests to another service within the mesh, you can skip this step and move on to step 5.
+To create a catalog cluster file to register your service with the Grey Matter Application, run the following:
+
+```bash
+pathogen generate catalog DIRECTORY/
+```
+
+## 5. Apply
+
+If your service will generate requests to another service in the mesh, you will need to configure [egress routes]() as well. If you only need to configure your service for ingress, follow these steps to apply.
+
+Make sure you have the [Grey Matter CLI](https://docs.greymatter.io/guides/commands-cli) downloaded and installed and configured for your Grey Matter deployment. You can check this by running `greymatter list cluster`. If you don't see any errors, you should be good to go.
+
+To apply the files and wire your service into the mesh, run the following:
+
+```bash
+export DIRECTORY={DIRECTORY}
+```
+
+```bash
+cd $DIRECTORY
+./apply.sh
+cd ..
+```
+
+Once you've done this, you should see your service on the dashboard and be able to route to it through edge!
+
+## 6. Remove
+
+To remove the service completely from the mesh, run the following:
+
+```bash
+kubectl delete -f $DIRECTORY/deploy/k8s-deployment.yaml
+cd $DIRECTORY
+./remove.sh
+cd ..
+```
+
+## (Optional) Egress Routes
+
+If your service doesn't need to make requests to another service within the mesh, you do not need to do this step.
 
 If your service will generate requests to another service in the mesh, run the following:
 
@@ -94,35 +135,4 @@ spiffe://{{ trustDomain }}/{{ serviceName }}
 
 filling in the SPIRE trust domain value (quickstart.greymatter.io for the helm-charts) and serviceName.
 
-## 4. Catalog template
-
-To create a catalog cluster file to register your service with the Grey Matter Application, run the following:
-
-```bash
-pathogen generate catalog DIRECTORY/
-```
-
-## 5. Apply
-
-Make sure you have the [Grey Matter CLI]() downloaded and installed and configured for your Grey Matter deployment. You can check this by running `greymatter list cluster`. If you don't see any errors, you should be good to go.
-
-To apply the files and wire your service into the mesh, run the following:
-
-```bash
-export DIRECTORY={DIRECTORY}
-```
-
-```bash
-./$DIRECTORY/apply.sh
-```
-
-Once you've done this, you should see your service on the dashboard and be able to route to it through edge!
-
-## 6. Remove
-
-To remove the service completely from the mesh, run the following:
-
-```bash
-kubectl delete -f $DIRECTORY/deploy/k8s-deployment.yaml
-./$DIRECTORY/remove.sh
-```
+Your service will need to be configured to make requests to `http://localhost:{{egressPort}}/{{ path }}` in order to make these egress requests.

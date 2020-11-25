@@ -3,11 +3,11 @@ ignore:
   - '^README\.md$'
 variables:
   - name: serviceName
-    description: the service name to route to from edge
+    description: serviceName (the name of the service and sidecar to route to from edge)
     value:
   - name: trustDomain
-    description: the trust domain for SPIRE
+    description: trustDomain (the trust domain for SPIRE)
     value: quickstart.greymatter.io
   - name: zone
-    description: the zone in which the sidecar runs
+    description: zone (the zone in which the sidecar runs)
     value: zone-default-zone

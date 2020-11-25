@@ -1,5 +1,5 @@
 {
-  "clusterName": "{{ variable "clusterName" }}",
+  "clusterName": "{{ variable "serviceName" }}",
   "zoneName": "{{ variable "zone" }}",
   "name": "{{ variable "displayName" }}",
   "version": "{{ variable "version" }}",
@@ -7,7 +7,7 @@
   "capability": "{{ variable "capability" }}",
   "runtime": "GO",
   "documentation": "{{ variable "documentation" }}",
-  "prometheusJob": "{{ variable "clusterName" }}",
+  "prometheusJob": "{{ variable "serviceName" }}",
   "minInstances": {{ variable "minInstances" }},
   "maxInstances": {{ variable "maxInstances" }},
   "authorized": true,
