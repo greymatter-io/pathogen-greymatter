@@ -24,23 +24,23 @@ variables:
     description: zone (the zone in which the sidecar runs)
     value: zone-default-zone
   - name: displayName
-    description: the name as it should appear in the dashboard
+    description: displayName (the name as it should appear in the dashboard)
     value:
   - name: version
-    description: the version of the service
+    description: version (the version of the service)
     value: latest
   - name: owner
-    description: the owner of the service
+    description: owner (the owner of the service)
     value:
   - name: capability
-    description: the capability of the service
+    description: capability (the capability of the service)
     value:
   - name: documentation
-    description: the path to the documentation link
-    value: /service/serviceName/latest
+    description: documentation (the path to the documentation link - /services/{{serviceName}}/{{version}})
+    value:
   - name: minInstances
-    description: the minimum number of instances that should always be running
+    description: minInstances (the minimum number of instances that should always be running)
     value: 1
   - name: maxInstances
-    description: the maximum number of instances that could be running
+    description: maxInstances (the maximum number of instances that could be running)
     value: 1

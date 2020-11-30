@@ -56,7 +56,7 @@ spec:
               mountPath: /run/spire/socket
               readOnly: false
       imagePullSecrets:
-        - name: docker.greymatter.io
+        - name: docker.secret
       volumes:
         - name: spire-socket
           hostPath:

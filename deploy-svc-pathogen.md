@@ -52,46 +52,24 @@ If you have a Kubernetes cluster ready that you would like to apply into, run:
 kubectl apply -f DIRECTORY/deploy/k8s-deployment.yaml
 ```
 
-## 2. Service templates
+## 2. Generate mesh configs
 
-To create the base mesh configurations for the service, run the following:
+To create all of the mesh configurations for the service and to route edge to it, run the following:
 
-```bash
-pathogen generate service DIRECTORY/
 ```
-
-This will generate the necessary mesh objects to allow Control to configure the sidecar and connect the deployment's sidecar to it's service.
-
-## 3. Edge to service templates
-
-To create the mesh configurations necessary to route from edge to the new service, run the following:
-
-```bash
-pathogen generate edge DIRECTORY/
-```
-
-## 4. Catalog template
-
-To create a catalog cluster file to register your service with the Grey Matter Application, run the following:
-
-```bash
-pathogen generate catalog DIRECTORY/
+pathogen generate all DIRECTORY/
 ```
 
 ## 5. Apply
 
-If your service will generate requests to another service in the mesh, you will need to configure [egress routes]() as well. If you only need to configure your service for ingress, follow these steps to apply.
+If your service will generate requests to another service in the mesh, you will need to configure [egress routes](#optional-egress-routes) as well. If you only need to configure your service for ingress, follow these steps to apply.
 
-Make sure you have the [Grey Matter CLI](https://docs.greymatter.io/guides/commands-cli) downloaded and installed and configured for your Grey Matter deployment. You can check this by running `greymatter list cluster`. If you don't see any errors, you should be good to go.
+Make sure you have the [Grey Matter CLI](https://docs.greymatter.io/guides/commands-cli) downloaded and installed and configured for your Grey Matter deployment. You can check this by running `greymatter list zone`. If you don't see any errors, you should be good to go.
 
 To apply the files and wire your service into the mesh, run the following:
 
 ```bash
-export DIRECTORY={DIRECTORY}
-```
-
-```bash
-cd $DIRECTORY
+cd DIRECTORY
 ./apply.sh
 cd ..
 ```
@@ -103,8 +81,8 @@ Once you've done this, you should see your service on the dashboard and be able 
 To remove the service completely from the mesh, run the following:
 
 ```bash
-kubectl delete -f $DIRECTORY/deploy/k8s-deployment.yaml
-cd $DIRECTORY
+kubectl delete -f DIRECTORY/deploy/k8s-deployment.yaml
+cd DIRECTORY
 ./remove.sh
 cd ..
 ```
