@@ -1,0 +1,23 @@
+{
+    "zone_key": "{{ variable "zone" }}",
+    "listener_key": "listener-{{ variable "serviceName" }}-ingress",
+    "domain_keys": [
+        "domain-{{ variable "serviceName" }}-ingress"
+    ],
+    "name": "ingress",
+    "ip": "0.0.0.0",
+    "port": {{ variable "sidecarIngressPort" }},
+    "protocol": "http_auto",
+    "secret": {
+        "secret_key": "{{ variable "serviceName" }}.identity",
+        "secret_name": "spiffe://{{ variable "trustDomain" }}/{{ variable "serviceName" }}",
+        "secret_validation_name": "spiffe://{{ variable "trustDomain" }}",
+        "subject_names": [
+            "spiffe://{{ variable "trustDomain" }}/edge"
+        ],
+        "ecdh_curves": [
+            "X25519:P-256:P-521:P-384"
+        ]
+    },
+    "tracing_config": null
+}

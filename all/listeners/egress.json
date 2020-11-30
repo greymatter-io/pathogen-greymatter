@@ -1,0 +1,12 @@
+{
+    "zone_key": "{{ variable "zone" }}",
+    "listener_key": "listener-{{ variable "serviceName" }}-egress",
+    "domain_keys": [
+        "domain-{{ variable "serviceName" }}-egress"
+    ],
+    "name": "egress",
+    "ip": "0.0.0.0",
+    "port": {{ variable "sidecarEgressPort" }},
+    "protocol": "http_auto",
+    "tracing_config": null
+}

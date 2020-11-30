@@ -1,0 +1,21 @@
+{
+    "zone_key": "{{ variable "zone" }}",
+    "cluster_key": "edge-to-{{ variable "serviceName" }}-cluster",
+    "name": "{{ variable "serviceName" }}",
+    "instances": [],
+    "circuit_breakers": null,
+    "outlier_detection": null,
+    "health_checks": [],
+    "require_tls": true,
+    "secret": {
+        "secret_key": "edge.identity",
+        "secret_name": "spiffe://{{ variable "trustDomain" }}/edge",
+        "secret_validation_name": "spiffe://{{ variable "trustDomain" }}",
+        "subject_names": [
+            "spiffe://{{ variable "trustDomain" }}/{{ variable "serviceName" }}"
+        ],
+        "ecdh_curves": [
+            "X25519:P-256:P-521:P-384"
+        ]
+    }
+}

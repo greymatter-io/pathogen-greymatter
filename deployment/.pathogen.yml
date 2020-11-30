@@ -18,7 +18,7 @@ variables:
     description: fabricNamespace (the kubernetes namespace where Grey Matter Control is running)
     value: default
   - name: image
-    description: iamge (the image for your new service)
+    description: image (the image for your new service)
     value: docker.greymatter.io/internal/fibonacci:latest
   - name: controlPodLabel
     description: controlPodLabel (the value of `gm_control_kubernetes_cluster_label` environment variable for gm-control)
