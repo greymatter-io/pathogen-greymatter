@@ -2,7 +2,7 @@
     "zone_key": "{{ variable "zone" }}",
     "domain_key": "domain-{{ variable "serviceName" }}-egress",
     "route_key": "route-{{ variable "serviceName" }}-{{ variable "egressServiceName" }}-egress",
-    "path": "/{{ variable "path" }}/",
+    "path": "/{{ variable "egressServiceName" }}/",
     "prefix_rewrite": "/",
     "shared_rules_key": "{{ variable "serviceName" }}-{{ variable "egressServiceName" }}-rules"
   }

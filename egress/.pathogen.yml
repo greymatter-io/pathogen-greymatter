@@ -11,9 +11,6 @@ variables:
   - name: trustDomain
     description: trustDomain (the trust domain for SPIRE)
     value: quickstart.greymatter.io
-  - name: path
-    description: path (the path for the route to egressService)
-    value:
   - name: zone
     description: zone (the zone in which the sidecar runs)
     value: zone-default-zone
