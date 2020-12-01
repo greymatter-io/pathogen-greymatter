@@ -16,7 +16,7 @@ There are several variables that will be reused for multiple different template 
 
 If your Grey Matter installation used the Grey Matter helm charts, unless you explicitly changed any of the above values with a default, you should use those values.  Service name and the port your service will be running on are up to you, be sure to add whatever environment variables are necessary to ensure this when you generate the [deployment](#1-the-deployment)
 
-In each template command you will indicate with directory you want the generated files to be put in, this is indicated as `DIRECTORY`. It is recommended to create a directory for each service you will be adding, and create all its templated files into it.
+In each template command you will indicate the directory you want the generated files to be put in, replace `DIRECTORY` in the following steps. It is recommended to create a directory for each service you will be adding, and generate all of its configurations there.
 
 ## 1. The Deployment
 
@@ -66,7 +66,7 @@ If your service will generate requests to another service in the mesh, you will 
 
 When you're ready to apply the configurations, follow these steps.
 
-Make sure you have the [Grey Matter CLI](https://docs.greymatter.io/guides/commands-cli) downloaded and installed and configured for your Grey Matter deployment. You can check this by running `greymatter list zone`. If you don't see any errors, you should be good to go.
+Make sure you have the [Grey Matter CLI](https://docs.greymatter.io/guides/commands-cli) installed and configured for your Grey Matter deployment. You can check this by running `greymatter list zone`. If you don't see any errors, you should be good to go.
 
 To apply the files and wire your service into the mesh, run the following:
 
