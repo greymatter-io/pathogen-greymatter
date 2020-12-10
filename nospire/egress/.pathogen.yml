@@ -1,0 +1,13 @@
+ignore:
+  - '^\.pathogen\.yml'
+  - '^README\.md$'
+variables:
+  - name: serviceName
+    description: serviceName (the name of the service making egress requests)
+    value:
+  - name: egressServiceName
+    description: egressServiceName (the name of the service to make requests to)
+    value:
+  - name: zone
+    description: zone (the zone in which the sidecar runs)
+    value: zone-default-zone

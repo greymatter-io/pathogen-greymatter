@@ -1,0 +1,20 @@
+{
+    "zone_key": "{{ variable "zone" }}",
+    "cluster_key": "edge-to-{{ variable "serviceName" }}-cluster",
+    "name": "{{ variable "serviceName" }}",
+    "instances": [],
+    "circuit_breakers": null,
+    "outlier_detection": null,
+    "health_checks": [],
+    "require_tls": true,
+    "ssl_config": {
+        "require_client_certs": true,
+        "trust_file": "/etc/proxy/tls/sidecar/ca.crt",
+        "cert_key_pairs": [
+          {
+            "certificate_path": "/etc/proxy/tls/sidecar/server.crt",
+            "key_path": "/etc/proxy/tls/sidecar/server.key"
+          }
+        ]
+      }
+}

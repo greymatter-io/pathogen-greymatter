@@ -1,0 +1,21 @@
+{
+  "clusterName": "{{ variable "serviceName" }}",
+  "zoneName": "{{ variable "zone" }}",
+  "name": "{{ variable "displayName" }}",
+  "version": "{{ variable "version" }}",
+  "owner": "{{ variable "owner" }}",
+  "capability": "{{ variable "capability" }}",
+  "runtime": "GO",
+  "documentation": "{{ variable "documentation" }}",
+  "prometheusJob": "{{ variable "serviceName" }}",
+  "minInstances": {{ variable "minInstances" }},
+  "maxInstances": {{ variable "maxInstances" }},
+  "authorized": true,
+  "clusterID": "",
+  "meshID": "",
+  "enableInstanceMetrics": true,
+  "enableHistoricalMetrics": true,
+  "instances": [],
+  "metricsTemplate": "",
+  "metricsPort": 8081
+}

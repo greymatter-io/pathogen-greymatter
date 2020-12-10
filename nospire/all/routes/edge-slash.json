@@ -1,0 +1,13 @@
+{
+    "zone_key": "{{ variable "zone" }}",
+    "domain_key": "edge",
+    "route_key": "edge-{{ variable "serviceName" }}-route-slash",
+    "path": "/services/{{ variable "serviceName" }}/{{ variable "version" }}",
+    "prefix_rewrite": "/services/{{ variable "serviceName" }}/{{ variable "version" }}/",
+    "redirects": null,
+    "shared_rules_key": "edge-{{ variable "serviceName" }}-shared-rules",
+    "rules": null,
+    "response_data": {},
+    "cohort_seed": null,
+    "retry_policy": null
+}

@@ -1,0 +1,14 @@
+{
+    "zone_key": "{{ variable "zone" }}",
+    "proxy_key": "{{ variable "serviceName" }}-proxy",
+    "domain_keys": [
+        "domain-{{ variable "serviceName" }}-ingress",
+        "domain-{{ variable "serviceName" }}-egress"
+    ],
+    "listener_keys": [
+        "listener-{{ variable "serviceName" }}-ingress",
+        "listener-{{ variable "serviceName" }}-egress"
+    ],
+    "name": "{{ variable "serviceName" }}",
+    "listeners": null
+}

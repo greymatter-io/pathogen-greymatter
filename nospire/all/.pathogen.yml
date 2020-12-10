@@ -1,0 +1,43 @@
+ignore:
+  - '^\.pathogen\.yml'
+  - '^README\.md$'
+variables:
+  - name: serviceName
+    description: serviceName (the name of the service and sidecar)
+    value:
+  - name: serviceHost
+    description: serviceHost (the hostname or ip address for the service)
+    value: 127.0.0.1
+  - name: servicePort
+    description: servicePort (the port on which the service listens)
+    value: 8080
+  - name: sidecarIngressPort
+    description: sidecarIngressPort (the port on which the sidecar listens for ingress connections)
+    value: 10808
+  - name: sidecarEgressPort
+    description: sidecarEgressPort (the port on which the sidecar listens for egress connections)
+    value: 10909
+  - name: zone
+    description: zone (the zone in which the sidecar runs)
+    value: zone-default-zone
+  - name: displayName
+    description: displayName (the name as it should appear in the dashboard)
+    value:
+  - name: version
+    description: version (the version of the service)
+    value: latest
+  - name: owner
+    description: owner (the owner of the service)
+    value:
+  - name: capability
+    description: capability (the capability of the service)
+    value:
+  - name: documentation
+    description: documentation (the path to the documentation link - /services/{{serviceName}}/{{version}})
+    value:
+  - name: minInstances
+    description: minInstances (the minimum number of instances that should always be running)
+    value: 1
+  - name: maxInstances
+    description: maxInstances (the maximum number of instances that could be running)
+    value: 1
