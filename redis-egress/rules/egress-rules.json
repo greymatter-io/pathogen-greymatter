@@ -1,0 +1,19 @@
+{
+    "zone_key": "{{ variable "zone" }}",
+    "shared_rules_key": "{{ variable "serviceName" }}-{{ variable "redisServiceName" }}-rules",
+    "name": "{{ variable "serviceName" }}-{{ variable "redisServiceName" }}",
+    "default": {
+      "light": [
+        {
+          "constraint_key": "",
+          "cluster_key": "{{ variable "serviceName" }}-{{ variable "redisServiceName" }}-cluster",
+          "metadata": null,
+          "properties": null,
+          "response_data": {},
+          "weight": 1
+        }
+      ],
+      "dark": null,
+      "tap": null
+    }
+  }

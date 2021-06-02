@@ -1,0 +1,8 @@
+{
+    "zone_key": "{{ variable "zone" }}",
+    "domain_key": "domain-{{ variable "serviceName" }}-{{ variable "redisServiceName" }}-egress",
+    "route_key": "route-{{ variable "serviceName" }}-{{ variable "redisServiceName" }}-egress",
+    "path": "/",
+    "prefix_rewrite": "",
+    "shared_rules_key": "{{ variable "serviceName" }}-{{ variable "redisServiceName" }}-rules"
+  }

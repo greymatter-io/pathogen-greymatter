@@ -1,0 +1,19 @@
+ignore:
+  - '^\.pathogen\.yml'
+  - '^README\.md$'
+variables:
+  - name: serviceName
+    description: serviceName (the name of the service making egress requests)
+    value:
+  - name: redisServiceName
+    description: redisServiceName (the name of the redis service to make requests to)
+    value:
+  - name: redisEgressPort
+    description: redisEgressPort (the port on which the sidecar listens for egress connections to redis)
+    value: 6379
+  - name: trustDomain
+    description: trustDomain (the trust domain for SPIRE)
+    value: quickstart.greymatter.io
+  - name: zone
+    description: zone (the zone in which the sidecar runs)
+    value: zone-default-zone
