@@ -9,18 +9,11 @@
     "port": {{ variable "redisEgressPort" }},
     "protocol": "http_auto",
     "tracing_config": null,
-    "active_network_filters": "envoy.redis_proxy",
+    "active_network_filters": ["envoy.tcp_proxy"],
     "network_filters": {
-        "envoy_redis_proxy": {
-            "stat_prefix": "redis-egress",
-            "settings": {
-                "op_timeout": "10000s"
-            },
-            "prefix_routes": {
-                "catch_all_route": {
-                    "cluster": "{{ variable "serviceName" }}-{{ variable "redisServiceName" }}-cluster"
-                }
-            }
-        }
+        "envoy_tcp_proxy": {
+            "stat_prefix": "egress_redis",
+            "cluster": "{{ variable "redisServiceName" }}"
+          }
     }
 }
