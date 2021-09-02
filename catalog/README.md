@@ -13,6 +13,7 @@ These templates use the following variables to customize the Grey Matter service
 | clusterName   |              | The name of the cluster.                                       |
 | displayName   |              | The name as it should appear in the dashboard.                 |
 | zone          | zone-default-zone | The zone.                                                      |
+| impact        | low          | The impact level if the application is down                    |
 | version       | latest       | The service  version.                                          |
 | owner         |              | The owner of the service                                       |
 | capability    |              | The capability of the service                                  |

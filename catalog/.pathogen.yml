@@ -11,6 +11,9 @@ variables:
   - name: zone
     description: the zone in which the sidecar runs
     value: zone-default-zone
+  - name: impact
+    description: impact of outage to the business
+    value: low
   - name: version
     description: the version of the service
     value: latest
