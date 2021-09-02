@@ -8,5 +8,11 @@
     "ip": "0.0.0.0",
     "port": {{ variable "sidecarEgressPort" }},
     "protocol": "http_auto",
-    "tracing_config": null
+    "tracing_config": null,
+    "active_http_filters": [
+        "gm.inheaders"
+    ],
+    "http_filters": {
+        "gm_inheaders": {}
+    }
 }
